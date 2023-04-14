@@ -1,6 +1,6 @@
 # Django Crypto App - ASETT Project
 
-My solution for Ayulla's ASETT assessment. A Django app that allows users to view the latest crypto prices, and also allows users to create an account and add their own crypto portfolio.
+My solution for Ayulla's ASETT assessment for which I developed a Django web application in under 24 hours that provides users with the latest cryptocurrency prices. The app also offers a user registration system that enables users to create an account and build their own crypto portfolio with a password reset and referral system.
 
 **TECHNOLOGIES USED:**
 
@@ -20,7 +20,7 @@ For instructions on how to run this project on YOUR PC, see below ↘️ [How To
 >**All steps are for a Windows 10 machine.**
 >I followed these steps to set up the project:
 
-```cmd
+```py
 # cd into the folder where you want to create the project
 cd django-crypto-app
 
@@ -66,7 +66,7 @@ pip freeze > requirements.txt
 
 You need app password for your email account for emailing. To know more about how to get your app password, see this [link](https://support.google.com/accounts/answer/185833?hl=en)
 
-```cmd
+```py
 
 # clone the repo
 git clone
@@ -100,11 +100,15 @@ python manage.py runserver
 
 ```
 
+## Database Schema
+
+![Database Schema](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/DB-layout.png?raw=true)
+
 ## How to Run Tests
 
 All tests are written in the `tests.py` file in the `mainapp` folder.
 
-```cmd
+```py
 
 # to run all tests
 python manage.py test
@@ -121,6 +125,10 @@ coverage html
 # check the htmlcov folder and open the index.html file
 
 ```
+
+#### Coverage Report
+
+![Coverage Report](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/coverage.png?raw=true)
 
 ## Folder Structure and Important Files
 
@@ -217,42 +225,84 @@ View testing in Django is used to check if the business logic defined in the vie
 - Improve the UI, add tags to django messages and make the messages more user-friendly.
 - Implement Caching to improve performance and reduce API calls.
 
-## Video Demonstration
+## Screenshots [Feature Checklist]
 
-[![Django Crypto App](https://img.youtube.com/vi/7Z4Z4Z4Z4Z4/0.jpg)](https://www.youtube.com/watch?v=7Z4Z4Z4Z4Z4)
+#### Admin Panel - Users
 
-## Screenshots
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/admin-1.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Admin Panel - Cryptocurrencies
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/admin-2.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Admin Panel - Referrals
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/admin-3.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Admin Panel - Portfolio
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/admin-4.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Admin Panel - Referrals
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/admin-5.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Login Screen
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/Login.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Signup Screen
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/signup.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Password Reset Email
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/password-reset-email.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Email Confirmation
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/password-reset-success.png?raw=true)
 
-![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
+#### Forgot Password Page
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/reset-password.png?raw=true)
+
+#### Add Currency / Search Result Page
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/add-currency.png?raw=true)
+
+#### Referral Signup Bonus
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/bonus.png?raw=true)
+
+#### Home Page [No Login]
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/home-1.png?raw=true)
+
+#### Home Page Bottom [Login]
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/home-blank.png?raw=true)
+
+#### Search Page [Add or Update Quantity]
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/search-2.png?raw=true)
+
+#### Home Page Bottom [Logged In] - Shows 24 Hour Price Change
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/user-price-change.png?raw=true)
+
+#### Wallet Page
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-1.png?raw=true)
+
+#### Wallet Page Cont
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-2.png?raw=true)
+
+#### Delete Currency
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-3.png?raw=true)
+
+#### Wallet Page [No Currencies Added, No Referrals]
+
+![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-blank.png?raw=true)
