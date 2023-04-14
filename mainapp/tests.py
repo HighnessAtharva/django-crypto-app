@@ -219,15 +219,12 @@ class UrlTest(TestCase):
         url = reverse('search')
         self.assertEqual(resolve(url).func, search_view)
          
+    # TODO: DEBUG THIS TEST
     def testSearchPageTemplate(self):
         self.client.login(username=self.user.username, password='12345')
-        response = self.client.post('/search')
+        response = self.client.post('/search/')
         self.assertTemplateUsed(response, 'search.html')
     
-    def testSearchPageContainsCorrectHtml(self):
-        self.client.login(username=self.user.username, password='12345')
-        # TODO: first go to the home page and fill in the search form and submit it to get to the search page and then check if the search page contains the correct html
-        
     # check if search page can only be accessed by POST request
     def testSearchPagePostOnly(self):
         self.client.login(username=self.user.username, password='12345')
@@ -510,7 +507,8 @@ class SearchViewTestCase(TestCase):
         response = self.client.post('/search/', {'search_query': 'invalid_crypto_currency'})
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'No crypto currency found based on your search query.')
-        
+      
+    # TODO: DEBUG THIS TEST  
     def test_already_in_portfolio(self):
         # add bitcoin to user's portfolio
         self.client.post('/add-to-portfolio/', {'id': 'bitcoin', 'quantity': '1'})

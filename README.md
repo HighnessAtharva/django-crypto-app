@@ -146,6 +146,25 @@ coverage html
 
 `mainapp\signals.py` - Contains the `create_profile` signal once a user is created.
 
+## Available Endpoints [URLs]
+
+```
+localhost:8000/
+localhost:8000/login
+localhost:8000/logout
+localhost:8000/signup
+localhost:8000/signup/str:referral_code
+localhost:8000/portfolio
+localhost:8000/search
+localhost:8000/add_to_portfolio
+localhost:8000/delete_from_portfolio/int:pk
+localhost:8000/password_reset
+localhost:8000/password_reset_done
+localhost:8000/password_reset_confirm/<uidb64>/<token>
+localhost:8000/password_reset_complete 
+localhost:8000/admin
+```
+
 ## Test Driven Development Approach Explained
 
 In Django, automated testing can be performed at three levels: URL testing, model testing, and view testing.
@@ -170,12 +189,17 @@ View testing in Django is used to check if the business logic defined in the vie
 
 **For view testing**, I created a series of test cases that used the Django TestCase class to simulate requests to various views in the application. Each test case sent a request to the view and verified that the response was the expected result.
 
+>Total Test Cases Written: 66
+>Passing Test Cases: 64
+>Failing Test Cases: 2 [Unable to fix the failing test cases due to time constraints]
+
 ## Some Notes
 
 - I used the `django-crispy-forms` package to style the forms.
 - I have set the bonus of a referral system to a static value of 100 per referral on successful signup. This can be implemented different if needed. Maybe a percentage of the total value of the portfolio of the person who referred the new user.
 - I chose to go with built-in Django authentication system instead of using a third-party package like `django-allauth` due to time constraints.
 - I used the build in auth.User model for the user model. I could have created a custom user model but I wanted to focus more on the business logic and the ORM queries.
+- **IMPORTANT:** Constantly refreshing the home page will result in too many API calls and the contents of the cryptocurrency table might disappear until a minute or two, this is because of the API rate limit. Hence, constant refreshing is not recommended.
 
 ## Challenges I Faced
 
@@ -194,9 +218,10 @@ View testing in Django is used to check if the business logic defined in the vie
 - Implement Caching to improve performance and reduce API calls.
 
 ## Video Demonstration
+
 [![Django Crypto App](https://img.youtube.com/vi/7Z4Z4Z4Z4Z4/0.jpg)](https://www.youtube.com/watch?v=7Z4Z4Z4Z4Z4)
 
-## Screenshots 
+## Screenshots
 
 ![Screenshot 1](https://i.imgur.com/7Z4Z4Z4.png)
 
