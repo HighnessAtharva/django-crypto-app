@@ -53,8 +53,7 @@ python manage.py createsuperuser
 # start the server
 python manage.py runserver
 
-# Django will start the server on port 8000 
-open the browser and go to http://localhost:8000/
+# Django will start the server on port 8000 so open the browser and go to http://localhost:8000/
 
 # Visit http://localhost:8000/admin to login to the admin panel
 
@@ -69,7 +68,7 @@ You need app password for your email account for emailing. To know more about ho
 ```py
 
 # clone the repo
-git clone
+git clone https://github.com/HighnessAtharva/django-crypto-app.git
 
 # cd into the project folder
 cd django-crypto-app
@@ -91,6 +90,8 @@ pip install -r requirements.txt
 # make migrations
 python manage.py makemigrations
 python manage.py migrate
+
+# delete existing database if necessary, overwrite and make your own migrations and users
 
 # create a superuser to login to the admin panel
 python manage.py createsuperuser
@@ -204,6 +205,7 @@ View testing in Django is used to check if the business logic defined in the vie
 ## Some Notes
 
 - I used the `django-crispy-forms` package to style the forms.
+- In the search box on the home page, the closest matching cryptocurrency is shown on the results page.
 - I have set the bonus of a referral system to a static value of 100 per referral on successful signup. This can be implemented different if needed. Maybe a percentage of the total value of the portfolio of the person who referred the new user.
 - I chose to go with built-in Django authentication system instead of using a third-party package like `django-allauth` due to time constraints.
 - I used the build in auth.User model for the user model. I could have created a custom user model but I wanted to focus more on the business logic and the ORM queries.

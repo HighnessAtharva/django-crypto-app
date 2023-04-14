@@ -7,18 +7,19 @@ from . import views
 urlpatterns = [
     path("", views.home_view, name="home"),
     
+    # user authentication
     path("login/", views.login_view, name="login"),
     path("logout/", views.logout_view, name="logout"),
     
     path("signup/", views.signup_view, name="signup"),
     path('signup/<str:referral_code>/', views.signup_with_referrer_view, name='signup_with_referrer_view'),
 
+    # wallet page
     path("portfolio/", views.portfolio_view, name="portfolio"),
     
-    
+    # CRUD operations on cryptos
     path("search/", views.search_view, name="search"),
     path("add_to_portfolio/", views.add_to_portfolio_view, name="add_to_portfolio"),
-    
     path('delete_from_portfolio/<int:pk>/', views.delete_from_portfolio_view, name='delete_from_portfolio'),
     
     # password reset stuff

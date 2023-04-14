@@ -119,10 +119,7 @@ def portfolio_view(request):
     if user_portfolio := Portfolio.objects.filter(user=current_user).first():
         portfolio = Portfolio.objects.get(user=current_user)
 
-        # calculate the total value of the portfolio again
-
         # get all the crypto currencies in the portfolio and recalculate the total value of the portfolio
-
         new_portfolio_value = 0
 
         user_cryptocurrencies = Cryptocurrency.objects.filter(user=current_user)
@@ -159,9 +156,9 @@ def home_view(request):
     top_10_crypto_url_global = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=10&page=1&sparkline=true'
     top_10_crypto_data_global = requests.get(top_10_crypto_url_global).json()
 
-    # check if user is logged in
-    
+    # check if user is logged in    
     if request.user.is_authenticated:
+        
         # get user's crypto currencies
         user_cryptocurrencies = Cryptocurrency.objects.filter(user=request.user)
         user_portfolio = Portfolio.objects.filter(user=request.user).first()
@@ -172,14 +169,14 @@ def home_view(request):
         ids = [crypto.id_from_api for crypto in user_cryptocurrencies]
         prices=[]
         
-        # only showing the price change for the last 24 hours for now and not the percentage change to reduce the number of api calls. 
-        # Only 10-20 api calls per minute are allowed for free users. Otherwise, I could have used the /coins/{id}/market_chart?vs_currency=usd&days=1 endpoint to get the price change for the last 24 hours and calculate the percentage change from that.
+        # NOTE: Only showing the price change for the last 24 hours for now and not the percentage change to reduce the number of api calls. Only 10-20 api calls per minute are allowed for free users. Otherwise, I could have used the /coins/{id}/market_chart?vs_currency=usd&days=1 endpoint to get the price change for the last 24 hours and calculate the percentage change from that.
         for crytpo_id in ids:  
             prices_url = f'https://api.coingecko.com/api/v3/simple/price?ids={crytpo_id}&vs_currencies=usd&include_24hr_change=true'
             prices_data = requests.get(prices_url).json()
 
             
-            # get the usd_24h_change value {'zenlink-network-token': {'usd': 0.02767664, 'usd_24h_change': 6.987445749775932}}
+            # get the usd_24h_change value from the JSON response like below 
+            # {'zenlink-network-token': {'usd': 0.02767664, 'usd_24h_change': 6.987445749775932}}
             price_change = prices_data[crytpo_id]['usd_24h_change']
             prices.append(price_change)
             
@@ -245,7 +242,7 @@ def add_to_portfolio_view(request):
     if request.method != 'POST':
         return HttpResponse('Need a crypto currency to add to your portfolio. Go back to the home page and search for a crypto currency.')
     
-    
+    # get values from the form
     coin_id = request.POST.get('id')
     quantity = request.POST.get('quantity')
     

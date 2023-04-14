@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 from .models import Profile
 
-
+# This file is used to generate a referral code for each user as soon as they sign up.
 def generate_referral_code():
     return shortuuid.ShortUUID().random(length=10)
 

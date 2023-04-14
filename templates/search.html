@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% block title %} Search Results {% endblock title %} {% block content %} <div class="card bg-info text-white">
-
+    <!--
+      NOTIFY USER IF THEY HAVE ALREADY ADDED THIS CURRENCY IN THIER WALLET. 
+      ANY NEW ADDITIONS WILL BE INCREMENTED, NOT OVERWRITTEN.
+    -->
     {% if is_already_in_portfolio %}   
     <div class="card-body">
       <p class="card-text">{{ coin_id }} is already in your portfolio. Any changes to the quantity will be reflected in your portfolio. Units will be added to the existing quantity.</p>
