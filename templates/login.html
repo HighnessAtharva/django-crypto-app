@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Login
+{% endblock title %}
+{% block content %}
+  <h1>Login</h1>
+  {% for message in messages %}
+    <p class='alert-success'>{{ message }}</p>
+  {% endfor %}
+  <form method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username">
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+    <button type="submit">Login</button>
+  </form>
+
+  <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+  <p>Forgot your password? <a href="{% url 'password_reset' %}">Reset Password</a></p>
+{% endblock %}

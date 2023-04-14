@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}
+Wallet 
+{% endblock title %}
+{% block content %}
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Wallet for {{ current_user|upper }}</h1>
+    <!-- rest of the HTML code for the portfolio view -->
+    {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+<div class="alert alert-info mb-4">
+  <p class="mb-0">Your Referral Code is <strong>{{ referral_code }}</strong></p>
+  <p><a href="http://localhost:8000/signup/{{ referral_code }}">Share this link with your friends to earn 100 points for each friend who signs up!</a></p>
+</div>
+
+
+<h2>REFERRALS</h2>
+<!--Iterate over all the referrals and print them in a list-->
+{% if referrals %}
+<div class="mb-5">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Referral User</th>
+        <th scope="col">Date Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for referral in referrals %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ referral.user }}</td>
+          <td>{{ referral.user.date_joined }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!--Add bootstrap styling to this -->
+  <div class="alert alert-success">
+  <b>Total Referrals: {{ referrals|length }}</b>
+  </div>
+
+  <div class="alert alert-info">
+  <b>Total Points Earned: {{ total_bonus }}</b>
+  </div>
+</div>
+{% else %}
+  <div class="alert alert-danger">You have not referred any friends yet.</div>
+{% endif %}
+
+
+
+
+<h2 class="mt-5">YOUR CRYPTOCURRENCIES</h2>
+
+{% if user_cryptocurrencies %}
+  <div class="table-responsive">
+    <table class="table table-striped mb-4">
+      <thead>
+        <tr>
+          <th scope="col">Cryptocurrency</th>
+          <th scope="col">Current Price</th>
+          <th scope="col">Amount Owned</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for crypto in user_cryptocurrencies %}
+          <tr>
+            <td>{{ crypto.name }}</td>
+            <td>{{ crypto.current_price }}</td>
+            <td>{{ crypto.quantity }}</td>
+            <td><a href="{% url 'delete_from_portfolio' crypto.id %}"><i class="fa fa-trash red-arrow"></i></a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <h5 class="mb-4 alert alert-success">TOTAL PORTFOLIO VALUE = {{ new_portfolio_value }} $</h5>
+{% else %}
+  <div class="alert alert-danger">You have not added any cryptocurrencies to your portfolio yet.</div>
+  <p><a class="btn btn-primary" href="{% url 'home' %}">Add Cryptocurrencies</a></p>
+{% endif %}
+</div>
+
+<br><br><br><br>
+{% endblock %}

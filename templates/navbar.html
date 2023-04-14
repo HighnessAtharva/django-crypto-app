@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">Crypto App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <!-- Add any additional links to the left side of the navbar here -->
+      </ul>
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="btn btn-primary my-2 my-sm-0" href="{% url 'portfolio' %}">View My Wallet</a>
+          </li>
+            <li class="nav-item">
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="btn btn-primary my-2 my-sm-0" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success my-2 my-sm-0" href="{% url 'signup' %}">Signup</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  
