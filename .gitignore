@@ -1,2 +1,5 @@
 env/
 .env
+
+mainapp/__pycache__/views.cpython-310.pyc
+mainapp/__pycache__/urls.cpython-310.pyc

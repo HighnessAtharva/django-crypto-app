@@ -3,10 +3,39 @@
 Sign Up
 {% endblock title %}
 {% block content %}
-  <h1>Signup</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Signup</button>
-  </form>
+<h1 class="mb-4">Signup</h1>
+<form method="post" class="my-4 p-4 border border-dark rounded">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="username">Username</label>
+        {{ form.username }} 
+    
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    {{ form.email }}
+  </div>
+  <div class="form-group">
+    <label for="password1">Password</label>
+    {{ form.password1 }}
+  </div>
+  <div class="form-group">
+    <label for="password2">Confirm Password</label>
+    {{ form.password2 }}
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Signup</button>
+
+  
+</form>
+
+{% if form.errors %}
+  <div class="alert alert-danger mt-3 mb-5">
+    <strong>Error:</strong> {{ form.errors }}
+  </div>
+{% endif %}
+
+<div class="mt-3">
+  Already have an account? <a href="{% url 'login' %}" class="text-primary font-weight-bold">Login</a>
+</div>
+
 {% endblock %}

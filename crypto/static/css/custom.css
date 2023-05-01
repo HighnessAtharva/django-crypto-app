@@ -1,5 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  color: white !important;
+  font-family: 'Roboto', sans-serif !important;
+  background-color: #130f40 !important;
+  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  min-height: 100vh !important;
 }
 
 .green-arrow {
@@ -54,4 +83,134 @@ body {
 
 .typeahead {
   border-radius: 0;
+}
+
+.custom-navbar-style {
+  box-shadow: -10px 8px 0px rgb(196 181 253);
+  background: #0f0f0f;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.custom-nav-logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+}
+
+.referral-code {
+  background-color: #080808;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #fff;
+}
+
+.referral-code p {
+  font-size: 1.1rem;
+}
+
+.custom-heading {
+  font-family: 'Montserrat', sans-serif;
+  /* Choose your desired font family */
+  font-size: 2.5rem;
+  /* Choose your desired font size */
+  font-weight: 600;
+  /* Choose your desired font weight */
+  letter-spacing: 2px;
+  /* Choose your desired letter spacing */
+  text-transform: uppercase;
+  /* Choose your desired text case */
+  text-decoration: underline #fff solid 1px;
+  /* Choose your desired underline style and color */
+  text-underline-offset: 10px;
+  /* Choose your desired text underline offset */
+  margin-bottom: 1rem;
+  /* Choose your desired bottom margin */
+}
+
+.custom-table {
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255);
+  box-shadow: 10px -8px 0px rgb(253 230 138);
+}
+
+th,
+td {
+  padding: 0.75rem;
+  vertical-align: middle;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 5px solid rgb(0, 0, 0) text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.alert {
+  border-radius: 2px !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 300 !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.alert-success {
+  background-color: #007f1e;
+  color:rgb(0, 0, 0) !important;
+  font-weight: bold !important;
+}
+
+.alert-info {
+  background-color: #009cb4;
+  color:rgb(0, 0, 0) !important;
+  font-weight: bold !important;
+}
+
+.alert-danger {
+  background-color: #520008 !important;
+  color:rgb(0, 0, 0) !important;
+  font-weight: bold !important;
+}
+
+.fancy-color {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.custom-title{
+  margin-left: -175px !important;
+  margin-top: -30px !important;
+  margin-bottom: 50px !important; 
+  padding: 0.5rem 0.5rem !important;
+  width: fit-content !important;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.welcome-user-text{
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
 }

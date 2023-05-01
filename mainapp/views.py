@@ -32,7 +32,7 @@ def login_view(request):
                 login(request, user)
                 return redirect('portfolio')
         else:
-            messages.error(request, "Invalid username or password.")
+            messages.error(request, "Invalid username or password.", extra_tags='danger')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
@@ -43,7 +43,6 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'You have successfully logged out!')
     return redirect('home')
-
 
 def signup_view(request):
     # check if user is already logged in
@@ -58,14 +57,20 @@ def signup_view(request):
                 user.password = make_password(form.cleaned_data['password1'])
                 user.email = form.cleaned_data['email']
                 user.save()
-                messages.success(request, 'You have successfully signed up!')
+                messages.success(request, 'You have successfully signed up!', extra_tags='success')
                 return redirect('login')
     else:
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
 
+# block access to signup page if user is already logged in
 def signup_with_referrer_view(request, referral_code):
+    
+    # check if user is already logged in
+    if request.user.is_authenticated:
+        return redirect('portfolio')
+            
     try:
         # get the User Profile of the referrer
         referrer = User.objects.get(profile__referral_code=referral_code)

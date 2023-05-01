@@ -19,15 +19,15 @@ Home
 {% endif %}
 
 {% if user.is_authenticated %}
-  <div class="row justify-content-center">
-    <h2 class="text-center mt-5">Welcome {{ user.username }}!</h2> 
+  <div class="row justify-content-left custom-title">
+    <h2 class="text-uppercase text-primary welcome-user-text">Welcome {{ user.username | capfirst }} </h2> 
   </div>
 {% endif %}
 
 <!--SEARCH BAR-->
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
-    <h2 class="text-center">Search For Cryptocurrencies to add to your wallet</h2>
+    <h2 class="text-center custom-heading">Search Cryptocurrency</h2>
   </div>
   <div class="row mt-3 justify-content-center">
     <div class="col-md-6 col-lg-4">
@@ -48,7 +48,7 @@ Home
 
 <!--GLOBAL CRYPTO CURRENCIES-->
 <div class="row justify-content-center">
-<h2 class="text-center mt-5"> Top 10 CryptoCurrency Rankings </h2> 
+<h2 class="text-center mt-5 mb-0 custom-heading"> Top 10 CryptoCurrency Rankings </h2> 
 </div>
 <br><br><br>
 <div class="flex-container">
@@ -90,17 +90,16 @@ Home
 
 {% if user.is_authenticated %}
 <div class="row justify-content-center">
-  <h2 class="text-center mt-5">24 Hour Price Changes [Crypto's in Your Wallet] </h2> 
+  <h2 class="text-center mt-5 mb-3 custom-heading">24H Summary of Your Cryptos </h2> 
 </div>
-<br><br><br>
 {% if user_cryptocurrencies %}
 <div class="table-responsive">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered custom-table">
       <thead>
         <tr>
           <th>#</th>
-          <th>Your Crytpocurrency Name</th>
-          <th>Price Change [24H]</th>
+          <th>Owned</th>
+          <th>Price Shift</th>
         </tr>
       </thead>
       <tbody>

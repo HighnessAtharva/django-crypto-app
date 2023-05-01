@@ -5,15 +5,19 @@ Login
 {% block content %}
   <h1>Login</h1>
   {% for message in messages %}
-    <p class='alert-success'>{{ message }}</p>
+    <p class="alert alert-{{ message.tags }}">{{ message }}</p>
   {% endfor %}
-  <form method="post">
+  <form method="post" class="my-4 p-4 border border-dark rounded">
     {% csrf_token %}
-    <label for="username">Username:</label>
-    <input type="text" name="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-    <button type="submit">Login</button>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block my-2">Login</button>
   </form>
 
   <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
