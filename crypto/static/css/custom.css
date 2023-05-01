@@ -179,19 +179,19 @@ tbody tr:hover {
 
 .alert-success {
   background-color: #007f1e;
-  color:rgb(0, 0, 0) !important;
+  color: rgb(0, 0, 0) !important;
   font-weight: bold !important;
 }
 
 .alert-info {
   background-color: #009cb4;
-  color:rgb(0, 0, 0) !important;
+  color: rgb(0, 0, 0) !important;
   font-weight: bold !important;
 }
 
 .alert-danger {
   background-color: #520008 !important;
-  color:rgb(0, 0, 0) !important;
+  color: rgb(0, 0, 0) !important;
   font-weight: bold !important;
 }
 
@@ -200,16 +200,16 @@ tbody tr:hover {
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 
-.custom-title{
+.custom-title {
   margin-left: -175px !important;
   margin-top: -30px !important;
-  margin-bottom: 50px !important; 
+  margin-bottom: 50px !important;
   padding: 0.5rem 0.5rem !important;
   width: fit-content !important;
   background: rgba(255, 255, 255, 0.9);
 }
 
-.welcome-user-text{
+.welcome-user-text {
   font-size: 1rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.05em !important;
