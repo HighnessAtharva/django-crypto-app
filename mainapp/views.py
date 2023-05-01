@@ -250,12 +250,13 @@ def add_to_portfolio_view(request):
     # get values from the form
     coin_id = request.POST.get('id')
     quantity = request.POST.get('quantity')
+    print(coin_id)
     
     # get the crypto currency data from the coingecko api based on the coin id
     api_url = f'https://api.coingecko.com/api/v3/coins/{coin_id}'
     response = requests.get(api_url)
     data = response.json()
-
+    print(data)
     # store the name, symbol, current price, and market cap rank of the crypto currency
     user = request.user
     name = data['name']

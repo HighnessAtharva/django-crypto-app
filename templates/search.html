@@ -1,36 +1,38 @@
-{% extends 'base.html' %} {% block title %} Search Results {% endblock title %} {% block content %} <div class="card bg-info text-white">
-    <!--
-      NOTIFY USER IF THEY HAVE ALREADY ADDED THIS CURRENCY IN THIER WALLET. 
-      ANY NEW ADDITIONS WILL BE INCREMENTED, NOT OVERWRITTEN.
-    -->
-    {% if is_already_in_portfolio %}   
-    <div class="card-body">
-      <p class="card-text">{{ coin_id }} is already in your portfolio. Any changes to the quantity will be reflected in your portfolio. Units will be added to the existing quantity.</p>
-      <hr>
-    </div>
-    {% endif %} 
- 
-    <div class="card mb-3 text-center">
-      <div class="row no-gutters justify-content-center align-items-center">
-        
-        <div class="col-md-4">
-          <img src="{{ image }}" class="card-img" alt="{{ symbol }}">
-        </div>
+{% extends 'base.html' %} {% block title %} Search Results {% endblock title %} {% block content %} 
 
-        <div class="col-md-8">
-          <div class="card-body text-dark">
-            <h5 class="card-title text-dark"><b>NAME:</b> {{ coin_id }}</h5>
-            <h6 class="card-subtitle mb-2 text-dark"><b>SYMBOL:</b>{{ symbol }}</h6>
-            <p class="card-text text-dark"><b>MARKET CAP:</b> {{ market_cap }}</p>
-            <form action="{% url 'add_to_portfolio' %}" method="post"> 
-              {% csrf_token %} 
-              <input type="hidden" name="id" value="{{ coin_id }}"> Quantity (Units) Owned: <input type="number" name="quantity" min="1" max="500" value="1">
-              <button type="submit" class="btn btn-primary">Add to Portfolio</button>
-            </form>
-        </div>
-        
-        </div>
+<div class="text-white border-0 col-md-8 mx-auto mt-5">
+  <!-- NOTIFY USER IF THEY HAVE ALREADY ADDED THIS CURRENCY IN THEIR WALLET. ANY NEW ADDITIONS WILL BE INCREMENTED, NOT OVERWRITTEN. -->
+  {% if is_already_in_portfolio %}   
+  <div class="card-body">
+    <p class="card-text text-uppercase mb-0"><small>{{ coin_id }} is already in your portfolio.</small></p>
+    <p class="card-text"><small>Any changes to the quantity will be reflected in your portfolio. Units will be added to the existing quantity.</small></p>
+    <hr class="border-white">
+  </div>
+  {% endif %} 
+ 
+  <div class="card mb-3 text-center border-0">
+    <div class="row justify-content-center align-items-center p-5">
+      
+      <div class="col-md-4">
+        <img src="{{ image }}" height="150" width="150" class="img-fluid" alt="{{ symbol }}">
       </div>
     
-      
-</div> {% endblock content %} {% block scripts %}  {% endblock scripts %}
+      <div class="col-md-4">
+        <div class="card-body text-dark">
+          <h5 class="card-title text-uppercase mb-2"><b>{{ coin_id }}</b><p class="card-subtitle mb-2 text-muted"><b>[{{ symbol }}]</b></p></h5>
+          
+          <p class="card-text text-uppercase mb-2"><small><b>MARKET CAP:</b> {{ market_cap }}</small></p>
+          <form action="{% url 'add_to_portfolio' %}" method="post" class="d-inline-block"> 
+            {% csrf_token %} 
+            <input type="hidden" name="id" value="{{ coin_id }}">
+            <label class="mr-2 font-weight-bold text-uppercase">Units Owned</label> 
+            <input type="number" name="quantity" min="1" max="500" value="1" class="form-control d-inline-block w-auto mr-2 mb-2"><br>
+            <button type="submit" class="btn btn-primary text-uppercase">Add to Portfolio</button>
+          </form>
+      </div>        
+      </div>
+    </div>    
+    
+  </div> 
+</div>   
+{% endblock content %} {% block scripts %}  {% endblock scripts %}
