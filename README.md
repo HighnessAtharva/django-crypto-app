@@ -301,10 +301,6 @@ View testing in Django is used to check if the business logic defined in the vie
 
 ![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-2.png?raw=true)
 
-#### Delete Currency
-
-![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-3.png?raw=true)
-
 #### Wallet Page [No Currencies Added, No Referrals]
 
 ![Screenshot 1](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/wallet-blank.png?raw=true)
