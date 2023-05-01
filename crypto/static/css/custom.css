@@ -85,11 +85,12 @@ body {
   border-radius: 0;
 }
 
-.custom-navbar-style {
-  box-shadow: -10px 8px 0px rgb(196 181 253);
-  background: #0f0f0f;
-  color: white;
-  margin-bottom: 50px;
+
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .custom-nav-logo {
@@ -98,6 +99,18 @@ body {
   font-weight: 500;
 
 }
+
+nav {
+  box-shadow: -10px 8px 0px rgb(196 181 253);
+  background: #0f0f0f;
+  color: white;
+  margin-bottom: 50px;
+  position: fixed ;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 
 footer {
   position: fixed;
