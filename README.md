@@ -1,6 +1,18 @@
 # Django Crypto App - ASETT Project
 
-My solution for Ayulla's ASETT assessment for which I developed a Django web application in under 24 hours that provides users with the latest cryptocurrency prices. The app also offers a user registration system that enables users to create an account and build their own crypto portfolio with a password reset and referral system.
+Introducing the 3-part technical tutorial series on building a Django project that lets users manage their cryptocurrency portfolios. The app also offers a user registration system that enables users to create an account and build their own crypto portfolio with a password reset and referral system.
+
+👉🏻 Follow along for a more guided learning:-  
+
+
+[Tutorial Series Part 1](https://atharvashah.netlify.app/blog/django-crypto-app/part1/) 
+
+
+[Tutorial Series Part 2](https://atharvashah.netlify.app/blog/django-crypto-app/part2/)  
+
+
+[Tutorial Series Part 3](https://atharvashah.netlify.app/blog/django-crypto-app/part3/)
+
 
 **TECHNOLOGIES USED:**
 
