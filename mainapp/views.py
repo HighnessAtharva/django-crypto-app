@@ -179,9 +179,6 @@ def home_view(request):
             prices_url = f'https://api.coingecko.com/api/v3/simple/price?ids={crytpo_id}&vs_currencies=usd&include_24hr_change=true'
             prices_data = requests.get(prices_url).json()
 
-            
-            # get the usd_24h_change value from the JSON response like below 
-            # {'zenlink-network-token': {'usd': 0.02767664, 'usd_24h_change': 6.987445749775932}}
             price_change = prices_data[crytpo_id]['usd_24h_change']
             prices.append(price_change)
             
@@ -197,8 +194,6 @@ def home_view(request):
         
     else:
         context = {'top_10_crypto_data_global': top_10_crypto_data_global}    
-        
-    
     return render(request, 'home.html', context)
 
 

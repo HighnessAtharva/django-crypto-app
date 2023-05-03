@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-
 {% block title %}
 Home 
 {% endblock title %}
-
 {% block content %}
 
 <!--Print messages-->
@@ -44,8 +42,6 @@ Home
   </div>
 </div>
 
-
-
 <!--GLOBAL CRYPTO CURRENCIES-->
 <div class="row justify-content-center">
 <h2 class="text-center mt-5 mb-0 custom-heading"> Top 10 CryptoCurrency Rankings </h2> 
@@ -85,9 +81,6 @@ Home
 
 
 <!--USER CRYPTO CURRENCIES-->
-
-{% comment %} only show the below code if user is signed in {% endcomment %}
-
 {% if user.is_authenticated %}
 <div class="row justify-content-center">
   <h2 class="text-center mt-5 mb-3 custom-heading">24H Summary of Your Cryptos </h2> 

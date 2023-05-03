@@ -101,6 +101,26 @@ python manage.py runserver
 
 ```
 
+## Docker
+
+```py
+
+# Ensure you have Docker Desktop installed and running
+
+# cd into the project folder
+
+# build the image
+docker-compose build
+
+# run the container
+docker-compose up
+
+# visit http://localhost:8000/
+
+# stop the container
+docker-compose down
+```
+
 ## Database Schema
 
 ![Database Schema](https://github.com/HighnessAtharva/django-crypto-app/blob/main/assets/DB-layout.png?raw=true)
